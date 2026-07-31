@@ -1,13 +1,4 @@
-function copyCode(e) {
-  var target = e.target
-  console.log("target", target)
-  var copyText = document.getElementById("code");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
-	document.execCommand("copy");
-	console.log(target)
-	target.innerText = "✓";
-}
+import { infoForPath, cleanText, chunkFragment, giftDataFromUrl } from "/path-info.js";
 
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
@@ -20,39 +11,13 @@ const copyToClipboard = str => {
 
 
 
-function infoForPath(path, clean = 1) {
-  if (path.length > 1) {
-    var dir = path.split(/\//);
-    var info = {};  
-    dir.forEach( d => {
-      if (d.length) {
-        var components = d.split(":");
-        var key = components.shift();
-        var value = components.join(":");
-        if (clean) value = value.replace(/__/g, "\n").replace(/_/g, " ");
-        info[key] = decodeURIComponent(value);  
-      }
-    })
-    return info;
-  } else {
-    return undefined;
-  }
-}
-
 var trackEvents = false;
 var root = document.getElementById("main-container")
 window.addEventListener("load", update);
 window.addEventListener("hashchange", update);
 function update() {
   var hash = window.location.hash;
-  window.giftData = infoForPath(window.location.pathname);
-
-  if (hash.length) {
-    var dataString = hash.substring(1).replace(/\_/g,"") // Remove _, introduced every 300c to address a bug in iMessage url parsing
-    let decodedHash = atob(dataString)
-    if (!window.giftData) window.giftData = {};
-    Object.assign(window.giftData, infoForPath(decodedHash, false));
-  }
+  window.giftData = giftDataFromUrl(window.location.pathname, hash);
 
   console.log("RENDERING", window.giftData)
 
@@ -153,10 +118,6 @@ window.onpointermove = function(e) {
 
 };
 
-function cleanText(t) {
-  return t.replace(/\n/g, "__").replace(/ /g, "_")
-}
-
 function submit(event) {
   event.preventDefault();
   const data = new FormData(event.target);
@@ -175,9 +136,7 @@ function submit(event) {
     if (value) hideComponents.push(f + ":" + encodeURIComponent(value))
   });
 
-  var hiddenContent = btoa(hideComponents.join("/")).replace(/=/g,"")
-  var matches = hiddenContent.match(/.{1,300}/g);
-  if (matches) hiddenContent = matches.join("_")
+  var hiddenContent = chunkFragment(btoa(hideComponents.join("/")).replace(/=/g,""))
 
   if (hiddenContent.length) showComponents.push("#" + hiddenContent)
   url += showComponents.join("/");
