@@ -4,6 +4,7 @@
   "account_id": "c0912e10eadeaa117b0067ab29b55da6",
   "main": "src/index.js",
   "compatibility_date": "2026-07-01",
+  "workers_dev": true,
   "observability": { "enabled": true },
   "assets": {
     // Asset-first: /gift.js, /gift.css, /img/* are served as files. Anything
