@@ -35,8 +35,8 @@ describe("shellHtml", () => {
   });
 
   it("builds a to/from title", () => {
-    const html = shellHtml({ to: "Peaches", from: "Pistacio" }, origin);
-    expect(html).toContain("to:Peaches, from:Pistacio");
+    const html = shellHtml({ to: "Peaches", from: "Pistachio" }, origin);
+    expect(html).toContain("to:Peaches, from:Pistachio");
   });
 
   it("uses re as the title and description when present", () => {

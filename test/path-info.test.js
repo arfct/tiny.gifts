@@ -7,9 +7,9 @@ describe("infoForPath", () => {
   });
 
   it("reads key:value segments", () => {
-    expect(infoForPath("/to:Peaches/from:Pistacio")).toEqual({
+    expect(infoForPath("/to:Peaches/from:Pistachio")).toEqual({
       to: "Peaches",
-      from: "Pistacio",
+      from: "Pistachio",
     });
   });
 

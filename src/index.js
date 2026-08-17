@@ -2,7 +2,7 @@
  * tiny.gifts on Cloudflare Workers.
  *
  * Static files in public/ are served asset-first. Anything that matches no
- * asset — including card paths like /to:Peaches/from:Pistacio — lands here.
+ * asset — including card paths like /to:Peaches/from:Pistachio — lands here.
  *
  * Routes:
  *   /og     the Open Graph card, rasterized by the og-svg service

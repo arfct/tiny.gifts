@@ -18,7 +18,7 @@ describe("cardSvg", () => {
   });
 
   it("renders the from line prefixed with an em dash", () => {
-    expect(cardSvg({ re: "Hi", from: "Pistacio" })).toContain("—Pistacio");
+    expect(cardSvg({ re: "Hi", from: "Pistachio" })).toContain("—Pistachio");
   });
 
   it("omits the from line when absent", () => {

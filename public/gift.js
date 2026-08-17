@@ -293,7 +293,7 @@ function editView(initialVnode) {
                   ),
                   m("div.formel",
                     m("label", {for:"from-field"}, "From"),
-                    m("input#from-field", {name:"from", placeholder:"Pistacio", size:6})
+                    m("input#from-field", {name:"from", placeholder:"Pistachio", size:6})
                   ),
                   m("div.formel",
                   m("label", {for:"re-field"}, "Preview Text", m("span.hint", " for")),

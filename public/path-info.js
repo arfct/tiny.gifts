@@ -1,7 +1,7 @@
 /**
  * The tiny.gifts URL format, shared verbatim by the Worker and the browser.
  *
- * Visible fields live in the path:      /to:Peaches/from:Pistacio/re:Hello_there
+ * Visible fields live in the path:      /to:Peaches/from:Pistachio/re:Hello_there
  *   `_` is a space, `__` a newline, values are percent-encoded.
  *
  * Hidden fields live in a base64 fragment, so the server never sees them:
