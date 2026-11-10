@@ -9,18 +9,20 @@ links:
   source: https://github.com/arfct/tiny.gifts
 media:
   - src: card.png
-    caption: A card as the recipient opens it
+    caption: The front of a card, with a note and the sender's name
     alt: A white card on a blue and green gradient with a short message about meeting at the park, signed Pistachio
   - src: create.png
-    caption: The front page of the site, laid out as a card
+    caption: The front page of the site, with its Create button
     alt: A small white card with a package icon, the line "Send messages, gift codes, and more with a tiny card." and a create button
 icon_shape: none
 unconfirmed:
   - date
 ---
 
-tiny.gifts puts a message and a gift code on a small card and sends it as a link. The card shows a package icon, a few lines of text and one button. Neither the sender nor the recipient needs an account or an app; both use a browser.
+tiny.gifts makes a small card that is sent as a link. The front of the card holds a note and the sender's name. The back can hold a description, a picture taken from the item's product page, a gift code with a Copy button and a link with a Get button. A click turns the card over. The background can be a color, an image or custom CSS.
 
-The sender fills in the front of the card. The recipient opens the link and sees the card.
+The contents of a card are stored in its link. The names and the preview text are in the path. The note, the code and the link are base64-encoded in the fragment after the #, which a browser does not send to the server. The site has no accounts.
 
-JavaScript on Cloudflare Workers. Live at tiny.gifts since 2021.
+The first commit is from January 2021. The site moved from Firebase to Cloudflare Workers in 2026.
+
+JavaScript, Mithril, Cloudflare Workers. 2021.
