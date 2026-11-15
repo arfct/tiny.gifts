@@ -2,7 +2,7 @@
 title: tiny.gifts
 date: 2021-01
 status: released
-category: product
+category: web-tool
 tags:
   - web
 url: https://tiny.gifts
